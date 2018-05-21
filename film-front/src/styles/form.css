@@ -1,0 +1,15 @@
+.md-ui-form-container{
+    display:flex;
+    flex-direction: column;
+}
+
+.md-ui-form-container > * {
+    width:100%;
+}
+
+
+.md-ui-form-footer {
+    display:flex;
+    flex-flow: row-reverse;
+}
+

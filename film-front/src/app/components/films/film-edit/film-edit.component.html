@@ -1,0 +1,41 @@
+<div class="md-ui-container md-ui-padding-50">
+  <h1>
+    {{isNew ? 'Créer un nouveau film': 'Modifier'}}
+  </h1>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Titre du film" [formControl]="titleFormControl" [errorStateMatcher]="titleStateMatcher" required>
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="titleFormControl.hasError('required')">
+        Le titre du film doit être spécifié
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="URL du poster" [formControl]="posterFormControl" [errorStateMatcher]="posterStateMatcher" required>
+      <mat-hint>Copiez-collez l'URL d'une image provenant d'un site comme Wikipedia.org ou imdb.com</mat-hint>
+      <mat-error *ngIf="posterFormControl.hasError('required')">
+        L'URL du poster doit être spécifiée
+      </mat-error>
+      <mat-error *ngIf="posterFormControl.hasError('pattern')">
+        Cette URL n'est pas valide
+      </mat-error>      
+    </mat-form-field>
+    <div class="md-ui-form-footer md-ui-padding-30">
+      <button mat-fab (click)="save()" [disabled]="!titleFormControl.valid || !posterFormControl.valid">OK</button>
+    </div>
+  </form>
+  
+  <ng-container *ngIf="!isNew">
+    <h4>Acteurs Principaux</h4>
+    <app-actor-list 
+        [actors]="actors" 
+        [small]="true" 
+        [editable]="true" 
+        (clickActor)="deleteActor($event)"
+        (clickAddActor)="openAddActorDialog()">
+      </app-actor-list>
+    
+    <h4>Réalisateurs</h4>
+    <app-director-list [directors]="directors" [small]="true"></app-director-list>
+  </ng-container>
+</div>

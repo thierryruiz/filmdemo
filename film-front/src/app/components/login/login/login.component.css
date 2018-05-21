@@ -1,0 +1,12 @@
+mat-card {
+    display:block;
+    background: white;
+    width:300px;
+    margin:150px auto 0 auto;
+    padding:50px;
+    box-shadow: 0 0 10px #CCC;
+}
+
+form {
+    margin-top:40px;
+}

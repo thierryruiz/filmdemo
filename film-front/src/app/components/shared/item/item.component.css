@@ -1,0 +1,65 @@
+:host {
+    display:inline-block;
+    margin-right:30px;
+    cursor:pointer;
+    margin-bottom:30px;
+}
+
+img.app-item-img {
+    height:240px;
+    width:auto;
+}
+
+p.app-item-lbl {
+    text-align:center;
+    font-size:0.9em;
+    font-weight:bold;
+    text-decoration: none;
+    margin:5px auto 0 auto;
+    width:80%;
+    color:black;
+}
+
+a {
+    text-decoration: none;
+}
+
+:host.md-ui-app-item-small img.app-item-img {
+    height:140px;
+    width:auto;
+}
+
+:host.md-ui-app-item-editable > a > div {
+  position: relative;
+}
+
+:host.md-ui-app-item-editable > a > div > img {
+  display: block;
+}
+
+:host.md-ui-app-item-editable .md-ui-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000000;
+}
+
+:host.md-ui-app-item-editable > a > div:hover .md-ui-overlay {
+  opacity: 1;
+}
+
+:host.md-ui-app-item-editable .md-ui-overlay > div  {
+  color: #fecc00;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}

@@ -1,0 +1,28 @@
+
+<div class="md-ui-container md-ui-padding-50">
+  <mat-toolbar class="md-ui-edit-toolbar" *ngIf="authService.isAuthenticated()">
+    <span class="md-ui-nav-spacer"></span>
+    <a [routerLink]="['/film/create']" class="md-ui-link-icon">
+      <mat-icon>add_circle_filled</mat-icon>
+      <span>Créer un film</span>
+    </a>
+    <a [routerLink]="['/actor/create']" class="md-ui-link-icon">
+      <mat-icon>add_circle_filled</mat-icon>
+      <span>Créer un acteur</span>
+    </a>
+    <a [routerLink]="['/director/create']" class="md-ui-link-icon">
+      <mat-icon>add_circle_filled</mat-icon>
+      <span>Créér un réalisateur</span>
+    </a>
+  </mat-toolbar>
+  <h2>Films cultes et nanars</h2>
+  <app-film-list [films]="searchService.filmResults$ | async"></app-film-list>
+</div>
+<div class="md-ui-container md-ui-padding-50">
+  <h2>Acteurs</h2>
+  <app-actor-list [actors]="searchService.actorResults$ | async"></app-actor-list>
+</div>
+<div class="md-ui-container md-ui-padding-50">
+  <h2>Réalisateurs</h2>
+  <app-director-list [directors]="searchService.directorResults$ | async"></app-director-list>  
+</div>

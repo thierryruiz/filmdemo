@@ -1,0 +1,10 @@
+<div class="md-ui-app-item-list">
+  <app-item 
+    *ngFor="let film of films" 
+    [label]="film.title" 
+    [image]="film.image"
+    [ngClass]="[small ? 'md-ui-app-item-small':'', editable ? 'md-ui-app-item-editable':'']"
+    [detailLink]="['/film/detail', film.id ]"
+    [editable]="editable">
+  </app-item>
+</div>

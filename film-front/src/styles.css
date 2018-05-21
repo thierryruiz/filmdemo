@@ -1,0 +1,118 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/icons/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin:0;
+    background-color: #fecc00;
+}
+
+* {
+  font-family: 'Roboto';
+}
+
+.md-ui-container {
+    margin:30px auto 20px auto ;
+    width:90%;
+    background-color: white;
+    box-shadow:0 0 10px #CCC;
+    padding: 10px 25px 20px 25px;
+}
+
+.md-ui-container.md-ui-transparent {
+    background-color:transparent;
+    box-shadow:none;
+}
+
+.md-ui-nav-spacer {
+    flex: 1 1 auto;
+}
+
+@media (min-width: 1024px) {
+  .md-ui-container {
+    width:1024px;
+  }
+}
+
+.md-ui-padding-30 {
+  padding:30px;
+}
+
+.md-ui-padding-50 {
+  padding:50px;
+}
+
+div.md-ui-app-item-add {
+    display:inline-block;
+    position:relative;
+    height:140px;
+    width:90px;
+    border: 1px solid #000000;
+    margin-left:20px;
+    cursor:pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+div.md-ui-app-item-list {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+div.md-ui-app-item-list app-item {
+  align-self:flex-start;
+}
+
+div.md-ui-app-item-list div.md-ui-app-item-add {
+  align-self:flex-start;
+}
+
+div.md-ui-app-item-add > mat-icon {
+  color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+ transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.md-ui-link-icon {
+  margin-left:15px;
+  display: flex;
+  vertical-align: middle;
+  text-decoration:none;
+  color:black;
+}
+
+.md-ui-link-icon span {
+  font-size: 0.8em;
+  margin-left: 5px;
+  margin-top: -3px;
+}
+
+mat-toolbar.md-ui-edit-toolbar {
+    margin-top:-20px;
+}

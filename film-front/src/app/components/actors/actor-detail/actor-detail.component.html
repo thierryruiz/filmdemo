@@ -1,0 +1,33 @@
+<div class="md-ui-container md-ui-padding-50">
+  <mat-toolbar class="md-ui-edit-toolbar" *ngIf="actor && authService.isAuthenticated()">
+    <span class="md-ui-nav-spacer"></span>
+    <a [routerLink]="['/actor/edit', actor.id ]" class="md-ui-link-icon">
+      <mat-icon>edit_circle_filled</mat-icon>
+      <span>Modifier</span>
+    </a>
+    <a href="javascript:void(0);" class="md-ui-link-icon" (click)="delete()">
+      <mat-icon>remove_circle_filled</mat-icon>
+      <span>Supprimer</span>
+    </a>
+  </mat-toolbar>
+  <h1>{{actor?.firstName}} {{actor?.lastName}}</h1>
+  <div style="display:flex">
+    <div>
+      <img src="{{actor?.image}}" style="width:300px;height:auto" />
+    </div>
+    <p style="margin-left:40px">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta sagittis lacinia. Pellentesque tempor pulvinar
+      diam quis fermentum. Sed a pretium erat. Ut et egestas augue. Ut porttitor lacinia ex a condimentum. Nulla mattis lectus
+      purus. Nunc at aliquet nisi. Aliquam non eros eu magna placerPat vulputate. Donec vel tristique turpis, et rhoncus eros.
+      Mauris lacinia porttitor egestas. Aliquam malesuada ex vitae lectus bibendum scelerisque. In sit amet malesuada nunc.
+      Morbi dui purus, facilisis vitae mi ut, varius hendrerit justo. Integer vestibulum blandit mauris, sed cursus orci
+      pellentesque et.
+    </p>
+  </div>
+
+  <ng-container *ngIf="films">
+    <h4>Films</h4>
+    <app-film-list [films]="films"></app-film-list>
+  </ng-container>
+
+</div>

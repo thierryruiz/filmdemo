@@ -1,0 +1,34 @@
+<div class="md-ui-container md-ui-padding-50">
+  <h1>
+    {{isNew ? 'Créer un réalisateur': 'Modifier'}}
+  </h1>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Nom" [formControl]="lastNameFormControl" [errorStateMatcher]="lastNameStateMatcher" required>
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="lastNameFormControl.hasError('required')">
+        Le nom doit être spécifié
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Prénom" [formControl]="firstNameFormControl" [errorStateMatcher]="firstNameStateMatcher" required>
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="firstNameFormControl.hasError('required')">
+        Le prénom doit être spécifié
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="URL de la photo" [formControl]="photoFormControl" [errorStateMatcher]="photoStateMatcher" required>
+      <mat-hint>Copiez-collez l'URL d'une photo provenant d'un site comme Wikipedia.org ou imdb.com</mat-hint>
+      <mat-error *ngIf="photoFormControl.hasError('required')">
+        L'URL du poster doit être spécifiée
+      </mat-error>
+      <mat-error *ngIf="photoFormControl.hasError('pattern')">
+        Cette URL n'est pas valide
+      </mat-error>
+    </mat-form-field>
+    <div class="md-ui-form-footer md-ui-padding-30">
+      <button mat-fab (click)="save()" [disabled]="!firstNameFormControl.valid || !lastNameFormControl.valid || !photoFormControl.valid">OK</button>
+    </div>
+  </form>
+</div>

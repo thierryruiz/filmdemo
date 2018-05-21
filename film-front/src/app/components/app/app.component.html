@@ -1,0 +1,21 @@
+<header>
+  <mat-toolbar id="md-ui-toolbar" color="primary">
+      <a [routerLink]="['']"><img src="assets/images/logo-small.png" class="md-ui-logo"/></a>
+      <span class="md-ui-nav-spacer"></span>
+      <button *ngIf="!authService.isAuthenticated()" mat-button (click)="showLoginForm()">S'identifier</button>
+      <button *ngIf="authService.isAuthenticated()" mat-button (click)="logout()">Se&nbsp;déconnecter</button>
+  </mat-toolbar>
+<header>
+
+<section>
+  <!-- <a routerLink="film/edit">Create film</a> -->
+  <div *ngIf="!showLogin" id="md-ui-search-container" class="md-ui-container md-ui-transparent">
+    <mat-form-field id="md-ui-search"> 
+      <input matInput placeholder="Recherchez un film culte, un nanar, un acteur ou un réalisateur" [formControl]="searchField" >
+    </mat-form-field>
+  </div>
+
+  <app-login *ngIf="showLogin" (authenticated)="onLogin(event)"></app-login>
+
+  <router-outlet *ngIf="!showLogin"></router-outlet>
+</section>
