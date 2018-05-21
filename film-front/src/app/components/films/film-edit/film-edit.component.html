@@ -30,12 +30,24 @@
     <app-actor-list 
         [actors]="actors" 
         [small]="true" 
-        [editable]="true" 
+        [editable]="true"
+        [detailLink]="false" 
         (clickActor)="deleteActor($event)"
         (clickAddActor)="openAddActorDialog()">
       </app-actor-list>
-    
-    <h4>Réalisateurs</h4>
-    <app-director-list [directors]="directors" [small]="true"></app-director-list>
   </ng-container>
+
+  <ng-container *ngIf="!isNew">
+
+    <h4>Réalisateurs</h4>
+    <app-director-list 
+      [directors]="directors" 
+      [small]="true"
+      [editable]="true" 
+      [detailLink]="false" 
+      (clickDirector)="deleteDirector($event)" 
+      (clickAddDirector)="openAddDirectorDialog()">
+    </app-director-list>
+  </ng-container>
+
 </div>

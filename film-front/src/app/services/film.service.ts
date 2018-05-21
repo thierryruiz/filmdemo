@@ -65,6 +65,10 @@ export class FilmService extends ModelService<Film> {
         return this.removeFromCollection('' + film.id, AppConfig.api.actor.collectionName, actorId );
     }
 
+    removeDirector(film: Film, directorId: string): Observable<any> {
+        return this.removeFromCollection('' + film.id, AppConfig.api.director.collectionName, directorId);
+    }
+
     addActor(film: Film, filmActors: Actor[], actor: Actor): Observable<any> {
         let uri = '';
         filmActors.forEach( item => {
@@ -72,6 +76,15 @@ export class FilmService extends ModelService<Film> {
         });
         return this.addToCollection('' + film.id, AppConfig.api.actor.collectionName,
             uri + actor.links['self']['href']);
+    }
+
+    addDirector(film: Film, filmDirectors: Director[], director: Director): Observable<any> {
+        let uri = '';
+        filmDirectors.forEach(item => {
+            uri += item.links['self']['href'] + '\n';
+        });
+        return this.addToCollection('' + film.id, AppConfig.api.director.collectionName,
+            uri + director.links['self']['href']);
     }
 
 }

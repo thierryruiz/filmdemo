@@ -21,6 +21,7 @@ export class AddItemComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchService.searchAll('');
     this.searchField = new FormControl();
     this.searchField.valueChanges
       .debounceTime(300)

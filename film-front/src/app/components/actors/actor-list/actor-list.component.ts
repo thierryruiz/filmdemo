@@ -14,6 +14,8 @@ export class ActorListComponent implements OnInit {
 
   @Input() editable: Boolean = false;
 
+  @Input() detailLink: Boolean = true;
+
   @Output() clickActor = new EventEmitter();
 
   @Output() clickAddActor = new EventEmitter();

@@ -5,7 +5,7 @@
     [image]="director.image"
     [ngClass]="[small ? 'md-ui-app-item-small':'', editable ? 'md-ui-app-item-editable':'']"
     [editable]="editable" 
-    [detailLink]="['/director/detail', director.id ]" (click)="onClickDirector(director.id)">
+    [detailLink]="detailLink?['/director/detail', director.id ]:null" (click)="onClickDirector(director.id)">
   >
   </app-item>
   <div *ngIf="editable" class="md-ui-app-item-add" (click)="onClickAddDirector()">

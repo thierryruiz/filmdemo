@@ -16,6 +16,7 @@ import { AppConfig } from '../../../config/app.config';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Utils } from '../../../shared/utils';
+import { DirectorService } from '../../../services/director.service';
 
 
 export class TitleStateMatcher implements ErrorStateMatcher {
@@ -68,6 +69,7 @@ export class FilmEditComponent implements OnInit {
     private dialog: MatDialog,
     private searchService: SearchService,
     private actorService: ActorService,
+    private directorService: DirectorService,
     private snackBar: MatSnackBar
   ) {
     this.film = modelHelper.createNewFilm() ;
@@ -136,6 +138,18 @@ export class FilmEditComponent implements OnInit {
     });
   }
 
+  deleteDirector(event) {
+    console.log('Delete director ' + event.directorId);
+    this.directors.forEach((item, i) => {
+      if (item.id === event.directorId) {
+        this.directors.splice(i, 1);
+        return false;
+      }
+    });
+    this.filmService.removeDirector(this.film, event.directorId).subscribe(res => {
+    });
+  }
+
   openAddActorDialog() {
     const dialogRef = this.dialog.open( AddItemComponent, {
       height: '600px',
@@ -148,13 +162,38 @@ export class FilmEditComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe( result => {
-      console.log( 'Actor added ' +  result.actorId ) ;
-      this.actorService.getById( result.actorId ).subscribe( actor => {
-        this.actors.push(actor);
-        this.filmService.addActor( this.film, this.actors, actor).subscribe( res => {
+      if (result.actorId) {
+        console.log('Add actor id ' + result.actorId);
+        this.actorService.getById( result.actorId ).subscribe( actor => {
+          this.actors.push(actor);
+          this.filmService.addActor( this.film, this.actors, actor).subscribe( res => {
+          });
         });
-      });
+     }
     }) ;
+  }
+
+  openAddDirectorDialog() {
+    const dialogRef = this.dialog.open(AddItemComponent, {
+      height: '600px',
+      width: '800px',
+      data: {
+        director: true,
+        searchLabel: 'Recherchez un réalisateur',
+        heading: 'Ajouter un réalisateur'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Add director id ' + result.directorId);
+      if (result.directorId ) {
+        this.directorService.getById(result.directorId).subscribe(director => {
+          this.directors.push(director);
+          this.filmService.addDirector(this.film, this.directors, director).subscribe(res => {
+          });
+        });
+      }
+    });
   }
 }
 

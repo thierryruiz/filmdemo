@@ -4,8 +4,19 @@
     <input matInput placeholder="{{dialogData.searchLabel}}" [formControl]="searchField">
   </mat-form-field>
   <div style="overflow-y: auto;height:300px">
-    <app-actor-list *ngIf="dialogData.actor" [actors]="searchService.actorResults$ | async" [small]="true" (clickActor)="onItemSelected($event)"></app-actor-list>
-    <app-director-list *ngIf="dialogData.director" [directors]="searchService.directorResults$ | async" [small]="true" (clickDirector)="onItemSelected($event)"></app-director-list>
+    <app-actor-list 
+      *ngIf="dialogData.actor" 
+      [actors]="searchService.actorResults$ | async" 
+      [small]="true"
+      [detailLink]="false"
+      (clickActor)="onItemSelected($event)">
+    </app-actor-list>
+    <app-director-list 
+      *ngIf="dialogData.director" 
+      [directors]="searchService.directorResults$ | async"
+      [detailLink]="false"
+      [small]="true" 
+      (clickDirector)="onItemSelected($event)"></app-director-list>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>

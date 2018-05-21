@@ -5,7 +5,7 @@
     [image]="actor.image"
     [ngClass]="[small ? 'md-ui-app-item-small':'', editable ? 'md-ui-app-item-editable':'']"
     [editable]="editable"
-    [detailLink]="['/actor/detail', actor.id ]"
+    [detailLink]="detailLink ? ['/actor/detail', actor.id ]:null"
     (click)="onClickActor(actor.id)">
   </app-item>
   <div *ngIf="editable" class="md-ui-app-item-add" (click)="onClickAddActor()">

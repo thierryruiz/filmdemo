@@ -14,6 +14,8 @@ export class DirectorListComponent implements OnInit {
 
   @Input() editable: Boolean = false;
 
+  @Input() detailLink: Boolean = true;
+
   @Output() clickDirector = new EventEmitter();
 
   @Output() clickAddDirector = new EventEmitter();
@@ -25,11 +27,11 @@ export class DirectorListComponent implements OnInit {
     console.log('Is editable on init ? ' + this.editable);
   }
 
-  onClickActor(id: any) {
+  onClickDirector(id: any) {
     this.clickDirector.emit({directorId: id});
   }
 
-  onClickAddActor(id: any) {
+  onClickAddDirector(id: any) {
     this.clickAddDirector.emit({});
   }
 
