@@ -1,6 +1,8 @@
 # Film Demo Web app 
 A film directory sample web app developped with an Angular 4 and SpringBoot
 
+![screenshot home](https://github.com/thierryruiz/filmdemo/blob/master/film/misc/screenshot1.jpg?raw=true)
+
 # Stack
   - Angular 4 / Angular Material
   - Spring Data Rest / Spring security
@@ -66,6 +68,11 @@ The front end is based on Angular 4 and uses Angular Material components.
 
 
 
+# Sceenshots
+
+![screenshot film](https://github.com/thierryruiz/filmdemo/blob/master/film/misc/screenshot3.jpg?raw=true)
+
+![screenshot film edit](https://github.com/thierryruiz/filmdemo/blob/master/film/misc/screenshot2.jpg?raw=true)
 
 
 
