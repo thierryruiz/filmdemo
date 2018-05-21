@@ -56,7 +56,7 @@ It's a film directory database listing films actors and directors.
 
 A simple data model is setup with Film, Actor and Director tables with many-to-many relationships between Film/Actor and Film/Director
 
-![Schema database](filmdemo/blob/master/film/misc/schema.png)
+![Schema database](https://raw.githubusercontent.com/thierryruiz/filmdemo/master/film/misc/schema.png)
 
 A REST API in HATEOS format is generated with Spring Data Rest.
 
