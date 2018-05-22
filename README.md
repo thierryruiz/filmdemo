@@ -24,7 +24,7 @@ git clone https://github.com/thierryruiz/filmdemo.git
 
 You need a Mysql 5+ instance running on your network or local host
 
-- Create a "filmdb" MySql
+- Create a "filmdb" database,
 - Edit database connection settings in film/src/main/resources/aplications.properties 
 
 ```sh
