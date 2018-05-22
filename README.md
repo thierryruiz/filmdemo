@@ -49,20 +49,22 @@ And then open your browser to [localhost:4200](http://localhost:4200)
 
 
 # Limitations
-No Unitary tests
-Tested only on Chrome
+
+No Unitary tests.
+Tested only on Chrome.
 
 # Dev stack
 The project is aim to showcase a sample CRUD web application using Angular 4/5 and Spring Data Rest. 
 It's a film directory database listing films actors and directors.
 
-A simple data model is setup with Film, Actor and Director tables with many-to-many relationships between Film/Actor and Film/Director
+A simple data model is setup with Film, Actor and Director tables with many-to-many relationships between Film/Actor and Film/Director.
 
 ![Schema database](https://raw.githubusercontent.com/thierryruiz/filmdemo/master/film/misc/schema.png)
 
-A REST API in HATEOS format is generated with Spring Data Rest.
+A REST API is generated with Spring Data Rest (in Hateos format).
 
-A JWT token based authentication based on Spring Security is in place to secure POST/UPDATE/DELETE REST requests. Only GET requests are available without authentication.
+A JWT token based authentication based on Spring Security is in place to secure POST/PUT/DELETE REST requests. 
+Only GET and OPTIONS requests are available without authentication.
 
 The front end is based on Angular 4 and uses Angular Material components. 
 
