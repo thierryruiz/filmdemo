@@ -50,7 +50,7 @@ And then open your browser to [localhost:4200](http://localhost:4200)
 
 # Limitations
 
-No Unitary tests.
+No Unitary tests. NgRx state management not used.
 Tested only on Chrome.
 
 # Dev stack
